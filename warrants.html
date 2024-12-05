@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warrants, Orders & Opinions - US Courts System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Logout</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="warrants.html">Warrants & Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Warrant Creation, Orders, and Opinions</h2>
+
+        <section>
+            <h3>Create a Warrant</h3>
+            <form id="warrantForm">
+                <label for="warrantType">Warrant Type:</label>
+                <input type="text" id="warrantType" name="warrantType" required>
+
+                <label for="details">Details:</label>
+                <textarea id="details" name="details" required></textarea>
+
+                <button type="submit">Create Warrant</button>
+            </form>
+        </section>
+
+        <section>
+            <h3>Create Order</h3>
+            <form id="orderForm">
+                <label for="orderDetails">Order Details:</label>
+                <textarea id="orderDetails" name="orderDetails" required></textarea>
+
+                <button type="submit">Create Order</button>
+            </form>
+        </section>
+
+        <section>
+            <h3>Create Opinion</h3>
+            <form id="opinionForm">
+                <label for="opinionDetails">Opinion Details:</label>
+                <textarea id="opinionDetails" name="opinionDetails" required></textarea>
+
+                <button type="submit">Create Opinion</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 US Courts System</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
