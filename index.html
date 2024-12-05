@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Courts Judicial Filing System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>US Courts Judicial Filing System</h1>
+    </header>
+    
+    <main>
+        <section id="file-case">
+            <h2>File a New Case</h2>
+            <form id="fileCaseForm">
+                <label for="caseTitle">Case Title:</label>
+                <input type="text" id="caseTitle" name="caseTitle" required>
+                
+                <label for="plaintiff">Plaintiff:</label>
+                <input type="text" id="plaintiff" name="plaintiff" required>
+                
+                <label for="defendant">Defendant:</label>
+                <input type="text" id="defendant" name="defendant" required>
+                
+                <label for="description">Case Description:</label>
+                <textarea id="description" name="description" required></textarea>
+                
+                <button type="submit">Submit Case</button>
+            </form>
+        </section>
+
+        <section id="case-management">
+            <h2>Case Management</h2>
+            <div id="caseList"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 US Courts Filing System</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
