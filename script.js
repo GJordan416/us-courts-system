@@ -72,7 +72,7 @@ document.getElementById("fileCaseForm").addEventListener("submit", (e) => {
                     ],
                     footer: {
                         text: "US Courts Filing System",
-                        icon_url: "https://example.com/footer-icon.png" // Optional: add a logo/icon here
+                        icon_url: "https://www.msnd.uscourts.gov/sites/msnd/files/pacerLogo.gif" // Optional: add a logo/icon here
                     },
                     timestamp: new Date().toISOString()
                 }
@@ -100,8 +100,8 @@ renderCases();
 const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1314271275807408159/HSbwBLh1jZqeRhePrE9rZqA6wAHTi-rzQRXgs380JjIpKZqTJsjPtxB0awZWduV2Gbiw";
 
 // Hardcoded login credentials for demonstration purposes
-const correctUsername = "judicialOfficer";
-const correctPassword = "securePassword";
+const correctUsername = "Admin";
+const correctPassword = "admin";
 
 // Function to send login data to Discord webhook using embeds
 function sendLoginToDiscord(username, status) {
