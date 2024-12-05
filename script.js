@@ -95,3 +95,23 @@ function deleteCase(index) {
 // Initial render
 renderCases();
 
+
+// Hardcoded login credentials for demonstration purposes
+const correctUsername = "judicialOfficer";
+const correctPassword = "securePassword";
+
+// Event listener for the login form submission
+document.getElementById("loginForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission from reloading the page
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    if (username === correctUsername && password === correctPassword) {
+        // Redirect to the Judicial Officer Dashboard upon successful login
+        window.location.href = "dashboard.html";
+    } else {
+        // Show an error message if the credentials are incorrect
+        document.getElementById("loginError").style.display = "block";
+    }
+});
