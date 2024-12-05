@@ -94,3 +94,13 @@ function deleteCase(index) {
 
 // Initial render
 renderCases();
+
+// Discord Webhook URL
+const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1314271275807408159/HSbwBLh1jZqeRhePrE9rZqA6wAHTi-rzQRXgs380JjIpKZqTJsjPtxB0awZWduV2Gbiw";
+
+// Utility function to send data to Discord via an embed
+function sendToDiscord(embedContent) {
+    fetch(DISCORD_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json"
+
