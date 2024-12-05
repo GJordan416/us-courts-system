@@ -38,13 +38,46 @@ document.getElementById("fileCaseForm").addEventListener("submit", (e) => {
     cases.push(newCase);
     localStorage.setItem("cases", JSON.stringify(cases));
 
-    // Send to Discord
+    // Send to Discord with formal embed
     fetch(DISCORD_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            content: `New Case Filed:\n**Title:** ${caseTitle}\n**Plaintiff:** ${plaintiff}\n**Defendant:** ${defendant}\n**Description:** ${description}`
-        }),
+            embeds: [
+                {
+                    title: "📄 New Case Filed",
+                    description: `A new case has been filed in the US Courts Judicial Filing System.`,
+                    color: 0x3498db, // Blue color for the embed
+                    fields: [
+                        {
+                            name: "Case Title",
+                            value: caseTitle,
+                            inline: true
+                        },
+                        {
+                            name: "Plaintiff",
+                            value: plaintiff,
+                            inline: true
+                        },
+                        {
+                            name: "Defendant",
+                            value: defendant,
+                            inline: true
+                        },
+                        {
+                            name: "Case Description",
+                            value: description,
+                            inline: false
+                        }
+                    ],
+                    footer: {
+                        text: "US Courts Filing System",
+                        icon_url: "https://example.com/footer-icon.png" // Optional: add a logo/icon here
+                    },
+                    timestamp: new Date().toISOString()
+                }
+            ]
+        })
     });
 
     // Reset form and re-render cases
