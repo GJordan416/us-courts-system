@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - US Courts System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Logout</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="warrants.html">Warrants & Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Judicial Officer Dashboard</h2>
+
+        <section>
+            <h3>Assign Case Number & Judge</h3>
+            <form id="assignCaseForm">
+                <label for="caseNumber">Case Number:</label>
+                <input type="text" id="caseNumber" name="caseNumber" required>
+
+                <label for="judge">Assign Judge:</label>
+                <input type="text" id="judge" name="judge" required>
+
+                <button type="submit">Assign</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 US Courts System</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
