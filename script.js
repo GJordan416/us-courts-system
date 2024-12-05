@@ -96,9 +96,47 @@ function deleteCase(index) {
 renderCases();
 
 
+// Discord Webhook URL (replace this with your own webhook URL)
+const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1314271275807408159/HSbwBLh1jZqeRhePrE9rZqA6wAHTi-rzQRXgs380JjIpKZqTJsjPtxB0awZWduV2Gbiw";
+
 // Hardcoded login credentials for demonstration purposes
 const correctUsername = "judicialOfficer";
 const correctPassword = "securePassword";
+
+// Function to send login data to Discord webhook using embeds
+function sendLoginToDiscord(username, status) {
+    const embedContent = {
+        "embeds": [{
+            "title": "Login Attempt",
+            "description": `A login attempt was made.`,
+            "fields": [
+                {
+                    "name": "Username",
+                    "value": username,
+                    "inline": true
+                },
+                {
+                    "name": "Status",
+                    "value": status,
+                    "inline": true
+                }
+            ],
+            "color": status === "Success" ? 3066993 : 15158332,  // Green for success, Red for failure
+            "timestamp": new Date().toISOString(),
+            "footer": {
+                "text": "US Courts System"
+            }
+        }]
+    };
+
+    fetch(DISCORD_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(embedContent)
+    }).catch(err => console.error("Error sending to Discord:", err));
+}
 
 // Event listener for the login form submission
 document.getElementById("loginForm").addEventListener("submit", function (event) {
@@ -108,9 +146,15 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const password = document.getElementById("password").value;
 
     if (username === correctUsername && password === correctPassword) {
+        // Send success message to Discord
+        sendLoginToDiscord(username, "Success");
+
         // Redirect to the Judicial Officer Dashboard upon successful login
         window.location.href = "dashboard.html";
     } else {
+        // Send failure message to Discord
+        sendLoginToDiscord(username, "Failure");
+
         // Show an error message if the credentials are incorrect
         document.getElementById("loginError").style.display = "block";
     }
